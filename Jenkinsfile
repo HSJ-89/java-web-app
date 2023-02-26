@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh 'build -t javawebapp-$BUILD_NUMBER'
+                sh 'build -t javawebapp-$BUILD_NUMBER .'
             }
         }
         
