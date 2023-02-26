@@ -1,8 +1,8 @@
 pipeline {
     environment {
-    registry = "hsj89/webapp"
-    registryCredential = 'Dockerhub'
-	dockerImage = ''
+        registry = "hsj89/webapp"
+        registryCredential = 'Dockerhub'
+        dockerImage = ''
     } 
     agent any 
     tools
@@ -23,7 +23,10 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                dockerImage = docker.build registry + "v:$BUILD_NUMBER"
+                script {
+                    dockerImage = docker.build registry + "v:$BUILD_NUMBER"
+                }
+                
             }
         }
         
