@@ -17,3 +17,17 @@ spec:
         image: hsj89/webapp:version-26
         ports:
         - containerPort: 8080
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hsj-service
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hsj
+  type: LoadBalancer
