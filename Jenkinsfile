@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn package'
             }
         }
         stage('Test') {
@@ -27,6 +27,15 @@ pipeline {
                     dockerImage = docker.build registry + ":version-$BUILD_NUMBER"
                 }
                 
+            }
+        }
+        stage('Deploy Image') {
+            steps{
+                script {
+                docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                }
+                }
             }
         }
         
