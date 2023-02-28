@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: hsj-deployment
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: hsj
   replicas: 1 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: nginx
+        app: hsj
     spec:
       containers:
       - name: hsj
-        image: hsj89/installv:tagname
+        image: hsj89/webapp:version-26
         ports:
-        - containerPort: 80
+        - containerPort: 8080
