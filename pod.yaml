@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hsj
-        image: hsj89/webapp:version-26
+        image: hsj89/webapp:version-latest
         ports:
         - containerPort: 8080
 ---
