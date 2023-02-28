@@ -41,7 +41,7 @@ pipeline {
         stage('deploy EKS') {
             steps {
                 script {
-                    sh "kubectl apply -f java-web-app/pod.yaml"
+                    sh "kubectl apply -f pod.yaml"
                 }
                 
             }
