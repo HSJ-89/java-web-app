@@ -25,5 +25,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish WAR as Artifact'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
     ArtifactName: 'drop'
