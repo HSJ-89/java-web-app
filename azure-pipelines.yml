@@ -7,13 +7,59 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  acrName: 'yourACRName'
+  repositoryName: 'yourRepositoryName'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- stage: Build
+  jobs:
+  - job: MavenBuild
+    displayName: 'Build Java App with Maven'
+    steps:
+    - task: UseJavaVersion@1
+      inputs:
+        versionSpec: '11'
+        addToPath: true
+
+    - script: 'mvn clean install'
+      displayName: 'Maven Build'
+
+- stage: BuildDockerImage
+  jobs:
+  - job: DockerBuild
+    displayName: 'Build Docker Image'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.1.x'
+
+    - task: Docker@2
+      inputs:
+        command: 'build'
+        Dockerfile: '$(dockerfilePath)'
+        tags: |
+          $(acrName)/$(repositoryName):$(Build.BuildId)
+
+- stage: PushToACR
+  jobs:
+  - job: PushToACR
+    displayName: 'Push Docker Image to ACR'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.1.x'
+
+    - task: Docker@2
+      inputs:
+        command: 'push'
+        containerRegistry: '$(acrName)'
+        repository: '$(repositoryName)'
+        tags: |
+          $(Build.BuildId)
+
