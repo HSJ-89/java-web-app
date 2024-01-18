@@ -20,7 +20,7 @@ stages:
   - job: MavenBuild
     displayName: 'Build Java App with Maven'
     steps:
-    - task: UseJavaVersion@1
+    - task: UseJavaVersion@0
       inputs:
         versionSpec: '11'
         addToPath: true
