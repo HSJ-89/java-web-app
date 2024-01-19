@@ -38,8 +38,13 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.war'
+    targetFolder: '$(build.artifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish WAR as Artifact'
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
-    ArtifactName: 'drop'
+    PathtoPublish: '$(build.artifactStagingDirectory)'
+    ArtifactName: 'ear'
