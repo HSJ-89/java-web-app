@@ -9,15 +9,22 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
+  MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
+  CACHE_KEY: maven | $(Agent.OS) | **/pom.xml
+  CACHE_FALLBACK_KEY: maven | $(Agent.OS)
+
+
 steps:
 
 - task: Cache@2
   inputs:
-    key: 'maven | "$(Agent.OS)" | **/pom.xml, **/*.xml'
-    restoreKeys: |
-      maven | "$(Agent.OS)"
-    path: '$(Agent.HomeDirectory)/.m2/repository'
-    cacheHitVar: 'MavenCacheRestored'
+    key: $(CACHE_KEY)
+    restoreKeys: $(CACHE_FALLBACK_KEY)
+    path: $(MAVEN_CACHE_FOLDER)
+    cacheHitVar: CACHE_RESTORED
+  displayName: Cache Mevn local repo
 
 - task: Maven@3
   displayName: 'Build Artifact'
