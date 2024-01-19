@@ -14,6 +14,8 @@ steps:
 - task: Cache@2
   inputs:
     key: 'maven | "$(Agent.OS)" | **/pom.xml, **/*.xml'
+    restoreKeys: |
+      maven | "$(Agent.OS)"
     path: '$(Agent.HomeDirectory)/.m2/repository'
     cacheHitVar: 'MavenCacheRestored'
 
