@@ -51,5 +51,7 @@ steps:
 
 - task: Docker@2
   inputs:
+    containerRegistry: 'acrconn'
+    repository: 'samplewar'
     command: 'build'
     Dockerfile: '**/Dockerfile'
