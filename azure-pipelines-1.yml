@@ -33,8 +33,10 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: '**/*.war;*.yaml'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    Contents: '*.yaml;**/*.war'
+    TargetFolder: 
+    CleanTargetFolder: true
+    OverWrite: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish WAR as Artifact'
