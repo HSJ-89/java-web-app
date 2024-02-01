@@ -53,5 +53,5 @@ steps:
   inputs:
     containerRegistry: 'acrconn'
     repository: 'samplewar'
-    command: 'build'
+    command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
