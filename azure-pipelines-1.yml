@@ -34,7 +34,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: '*.yaml;**/*.war'
-    TargetFolder: 
+    TargetFolder: '$(build.artifactStagingDirectory)'
     CleanTargetFolder: true
     OverWrite: true
 
