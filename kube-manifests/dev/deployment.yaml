@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-app-container
-        image: hsjacr.azurecr.io/samplewar:#{Build.BuildId}#  # Replace with your Docker image details
+        image: hsjacr.azurecr.io/samplewar:$(Release.Artifacts._HSJ-89.java-web-app (1).BuildId)  # Replace with your Docker image details
         imagePullPolicy: Always
         resources:
           limits:
