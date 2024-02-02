@@ -15,9 +15,7 @@ spec:
       containers:
       - name: web-app-container
         image: hsjacr.azurecr.io/samplewar  # Replace with your Docker image details
-        env:
-        - name: BUILD_ID
-          value: "$(Build.BuildId)"
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
