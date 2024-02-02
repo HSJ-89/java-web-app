@@ -50,3 +50,6 @@ steps:
     repository: 'samplewar'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile1'
+    tags: |
+      $(Build.BuildId)
+      latest
