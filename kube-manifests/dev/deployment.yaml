@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-app-container
-        image: hsjacr.azurecr.io/samplewar:36  # Replace with your Docker image details
+        image: hsjacr.azurecr.io/samplewar  # Replace with your Docker image details
         resources:
           limits:
             memory: "128Mi"
