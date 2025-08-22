@@ -42,8 +42,8 @@ pipeline {
         stage('Deploy Image') {
             steps{
                 script {
-                docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
+                	#docker.withRegistry( '', registryCredential ) {
+                    #dockerImage.push()
                 }
                 }
             }
@@ -51,7 +51,7 @@ pipeline {
         stage('deploy EKS') {
             steps {
                 script {
-                    sh "kubectl apply -f pod.yaml"
+                    #sh "kubectl apply -f pod.yaml"
                 }
                 
             }
