@@ -24,11 +24,21 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":version-latest"
+                    sh 'docker build -t hsj89/webapp:${BUILD_NUMBER} .'
                 }
                 
             }
         }
+
+		stage('docker  Images') {
+            steps {
+                script {
+                    sh 'docker images'
+                }
+                
+            }
+        }
+		
         stage('Deploy Image') {
             steps{
                 script {
