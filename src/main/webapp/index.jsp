@@ -8,7 +8,7 @@
         /* Modern Warm Gradient Background */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a95);
+            background: linear-gradient(153deg, #000000, #443a3a, #000000);
             display: flex;
             flex-direction: column;
             justify-content: center;
