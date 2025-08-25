@@ -43,7 +43,7 @@ pipeline {
             steps{
                 script {
 					echo "Push Image"
-                    sh 'docker push -t hsj89/webapp:${BUILD_NUMBER}'
+                    sh 'docker push  hsj89/webapp:${BUILD_NUMBER}'
                 	// docker.withRegistry( '', registryCredential ) {
                     // dockerImage.push()
                 }
