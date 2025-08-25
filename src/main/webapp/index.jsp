@@ -3,12 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello DevOps World..!!!</title>
+    <title>Hello DEVOPS World</title>
     <style>
-        /* Modern Gradient Background */
+        /* Modern Warm Gradient Background */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a95);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,8 +32,8 @@
         }
 
         .demo-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
             padding: 20px 30px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
@@ -46,11 +46,11 @@
     </style>
 </head>
 <body>
-    <h2>Hello DevOps World..!!!!!!</h2>
+    <h2>Hello DEVOPS World!</h2>
     <p>Welcome to this demo JSP page. Explore how JSP can integrate with modern HTML and CSS for dynamic and visually appealing web pages.</p>
     
     <div class="demo-box">
-        <p>This is a demo box to showcase additional content with a modern transparent style.</p>
+        <p>This is a demo box to showcase additional content with a warm modern style.</p>
         <p>You can add more paragraphs, lists, or even dynamic JSON content here using the <code>JSONObject</code> class.</p>
     </div>
 </body>
