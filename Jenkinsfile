@@ -50,13 +50,17 @@ pipeline {
                 }
             }
         
-        stage('deploy EKS') {
+        stage('Deploy Image') {
             steps {
                 script {
-					echo "Deploy to EKS"
-                    // sh "kubectl apply -f pod.yaml"
+                    // Stop any old container with the same name
+                    sh """
+                    if [ \$(docker ps -q -f name=webapp) ]; then
+                        docker rm -f webapp
+                    fi
+                    docker run -d --name webapp -p 81:8080 hsj89/webapp:${BUILD_NUMBER}
+                    """
                 }
-                
             }
         }
         
