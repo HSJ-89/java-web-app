@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <title>Hello DEVOPS World</title>
     <style>
+        /* Modern Gradient Background */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -15,30 +16,41 @@
             height: 100vh;
             margin: 0;
             text-align: center;
+            color: #fff;
         }
+
         h2 {
-            color: #333;
+            font-size: 3em;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
+
         p {
-            color: #555;
+            font-size: 1.2em;
             max-width: 600px;
+            line-height: 1.6;
         }
+
         .demo-box {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             margin-top: 20px;
+        }
+
+        .demo-box p {
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <h2>Hello DEVOPS World!</h2>
-    <p>Welcome to this demo JSP page. Here, you can try out dynamic content, work with JSON data, and see how JSP integrates with HTML and CSS for beautiful layouts.</p>
+    <p>Welcome to this demo JSP page. Explore how JSP can integrate with modern HTML and CSS for dynamic and visually appealing web pages.</p>
     
     <div class="demo-box">
-        <p>This is a demo box to showcase additional text content.</p>
+        <p>This is a demo box to showcase additional content with a modern transparent style.</p>
         <p>You can add more paragraphs, lists, or even dynamic JSON content here using the <code>JSONObject</code> class.</p>
     </div>
 </body>
